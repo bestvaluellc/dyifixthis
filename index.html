@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="DIYFixThis turns a photo of a home repair problem into clear next steps, tools, materials, and safety guidance.">
+  <title>DIYFixThis — Repair Guidance from a Photo</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #f4f8fb;
+      --surface: #ffffff;
+      --text: #15212b;
+      --muted: #5b6873;
+      --accent: #1769aa;
+      --accent-dark: #0f4d80;
+      --accent-text: #ffffff;
+      --border: #dce5ec;
+      --soft: #eaf4fb;
+      --warning: #fff7df;
+      --warning-border: #e7c965;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #0d1216;
+        --surface: #171e24;
+        --text: #eef4f8;
+        --muted: #b4c0c9;
+        --accent: #368bd0;
+        --accent-dark: #2674b2;
+        --border: #303b44;
+        --soft: #172b3a;
+        --warning: #302a18;
+        --warning-border: #806f32;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    nav {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .nav-links a { color: var(--muted); text-decoration: none; }
+    .hero {
+      width: min(1080px, calc(100% - 32px));
+      margin: 36px auto 72px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: clamp(28px, 7vw, 84px);
+      align-items: center;
+    }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.6rem, 8vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+    .lead {
+      max-width: 680px;
+      margin: 24px 0;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 11px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover { background: var(--accent-dark); }
+    .credit-note { margin-left: 12px; color: var(--muted); font-weight: 600; }
+    .app-card {
+      padding: clamp(24px, 5vw, 38px);
+      background: linear-gradient(145deg, var(--accent), var(--accent-dark));
+      color: white;
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(13, 64, 104, 0.28);
+    }
+    .app-icon {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 19px;
+      background: rgba(255, 255, 255, 0.17);
+      font-size: 2rem;
+    }
+    .app-card h2 { margin: 0 0 12px; font-size: 1.7rem; }
+    .app-card p { margin: 0; color: rgba(255, 255, 255, 0.85); }
+    section {
+      width: min(1080px, calc(100% - 32px));
+      margin: 72px auto;
+    }
+    section > h2 {
+      margin-bottom: 10px;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      letter-spacing: -0.025em;
+    }
+    .section-intro { max-width: 680px; color: var(--muted); }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .feature {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .feature .symbol { font-size: 1.65rem; }
+    .feature h3 { margin: 12px 0 8px; }
+    .feature p { margin: 0; color: var(--muted); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+      counter-reset: step;
+    }
+    .step {
+      counter-increment: step;
+      padding: 24px;
+      background: var(--soft);
+      border-radius: 16px;
+    }
+    .step::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-weight: 750;
+    }
+    .step h3 { margin: 0 0 6px; }
+    .step p { margin: 0; color: var(--muted); }
+    .safety {
+      padding: 22px 24px;
+      background: var(--warning);
+      border: 1px solid var(--warning-border);
+      border-radius: 14px;
+    }
+    footer {
+      width: min(1080px, calc(100% - 32px));
+      margin: 72px auto 0;
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer div { display: flex; flex-wrap: wrap; gap: 18px; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; margin-top: 20px; }
+      .features, .steps { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; font-size: 0.92rem; }
+      .credit-note { display: block; margin: 12px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">DIYFixThis</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="support.html">Support</a>
+      <a href="privacy-policy.html">Privacy</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div>
+        <h1>A clearer next step for home repairs.</h1>
+        <p class="lead">Snap a photo of a home repair problem and get a practical repair plan with likely causes, tools, materials, step-by-step guidance, and important safety warnings.</p>
+        <a class="button" href="support.html">Learn More</a>
+        <span class="credit-note">Start with 5 free repair credits.</span>
+      </div>
+      <div class="app-card" aria-label="DIYFixThis app summary">
+        <div class="app-icon" aria-hidden="true">🛠</div>
+        <h2>Photo to repair plan</h2>
+        <p>Designed to help homeowners understand the problem, prepare the right tools, and recognize when it is time to call a professional.</p>
+      </div>
+    </header>
+
+    <section id="features">
+      <h2>Useful guidance, without the guesswork</h2>
+      <p class="section-intro">DIYFixThis organizes repair guidance into an approachable plan you can save, revisit, and share.</p>
+      <div class="features">
+        <article class="feature">
+          <div class="symbol" aria-hidden="true">📷</div>
+          <h3>Start with a photo</h3>
+          <p>Choose a clear repair photo and add details about what you see, hear, or feel.</p>
+        </article>
+        <article class="feature">
+          <div class="symbol" aria-hidden="true">🔧</div>
+          <h3>Get organized steps</h3>
+          <p>Review likely causes, suggested tools and materials, repair steps, urgency, and difficulty.</p>
+        </article>
+        <article class="feature">
+          <div class="symbol" aria-hidden="true">⚠️</div>
+          <h3>Know your limits</h3>
+          <p>See safety warnings and clear guidance about situations that should be handled by a professional.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>How it works</h2>
+      <div class="steps">
+        <article class="step">
+          <h3>Choose a photo</h3>
+          <p>Use good lighting and include enough surrounding area to show the problem clearly.</p>
+        </article>
+        <article class="step">
+          <h3>Add context</h3>
+          <p>Describe symptoms such as leaking, cracking, looseness, noise, or location.</p>
+        </article>
+        <article class="step">
+          <h3>Review your plan</h3>
+          <p>Save the result, provide feedback, or share the repair plan when you need it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="safety"><strong>Safety comes first.</strong> DIYFixThis provides general home-repair guidance and is not a substitute for a licensed contractor, electrician, plumber, inspector, engineer, or other qualified professional. Never attempt work that appears unsafe, illegal, or beyond your skill level.</div>
+    </section>
+  </main>
+
+  <footer>
+    <span>DIYFixThis • © 2026 Best Value LLC</span>
+    <div>
+      <a href="mailto:diyfixthisapp@gmail.com">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>DIYFixThis Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #f5f7fa;
+      --card: #ffffff;
+      --text: #17202a;
+      --muted: #5f6b76;
+      --accent: #1769aa;
+      --accent-text: #ffffff;
+      --border: #dfe5eb;
+      --notice: #fff7df;
+      --notice-border: #e9ca68;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #101418;
+        --card: #181e24;
+        --text: #eef3f7;
+        --muted: #b3bec8;
+        --accent: #368bd0;
+        --accent-text: #ffffff;
+        --border: #303942;
+        --notice: #302a18;
+        --notice-border: #806f32;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    main {
+      width: min(820px, calc(100% - 32px));
+      margin: 40px auto;
+      padding: clamp(24px, 5vw, 52px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    }
+    h1, h2 { line-height: 1.25; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 6vw, 3rem); }
+    h2 { margin-top: 2rem; font-size: 1.3rem; }
+    p, ul, ol { margin: 0.75rem 0; }
+    ul, ol { padding-left: 1.35rem; }
+    .intro { color: var(--muted); font-size: 1.08rem; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1.5rem 0 2rem;
+    }
+    .button {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .notice {
+      margin: 1.5rem 0;
+      padding: 14px 16px;
+      background: var(--notice);
+      border: 1px solid var(--notice-border);
+      border-radius: 10px;
+    }
+    details {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    summary { cursor: pointer; font-weight: 650; }
+    details p, details ul, details ol { margin-bottom: 0; }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DIYFixThis Support</h1>
+    <p class="intro">Need help with the app, your repair credits, or your account? Start with the answers below or email us directly.</p>
+
+    <div class="actions">
+      <a class="button" href="mailto:diyfixthisapp@gmail.com?subject=DIYFixThis%20Support%20Request">Email Support</a>
+      <a class="button secondary" href="privacy-policy.html">Privacy Policy</a>
+    </div>
+
+    <p><strong>Support email:</strong> <a href="mailto:diyfixthisapp@gmail.com">diyfixthisapp@gmail.com</a></p>
+
+    <div class="notice"><strong>Safety first:</strong> DIYFixThis provides general home-repair guidance. Stop and contact a qualified professional if a repair may involve electrical, gas, structural, fire, sewage, mold, asbestos, lead paint, or major water-damage risks.</div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <details open>
+      <summary>How do I get a repair plan?</summary>
+      <ol>
+        <li>Tap <strong>New Repair</strong>.</li>
+        <li>Choose a clear photo of the problem.</li>
+        <li>Add any useful details.</li>
+        <li>Tap <strong>Get Fix Instructions</strong>.</li>
+      </ol>
+      <p>For the best result, use good lighting, keep the damaged area in focus, and include enough surrounding area to show context.</p>
+    </details>
+
+    <details>
+      <summary>How do repair credits work?</summary>
+      <p>New accounts receive five free repair credits. A credit is used only when DIYFixThis identifies a repair with medium or high confidence. Low-confidence, unsupported, safety-only, and more-photo-needed results do not consume a credit.</p>
+      <p>You can earn additional credits through optional rewarded ads or purchase 10-credit and 30-credit packs.</p>
+    </details>
+
+    <details>
+      <summary>Where do purchased credits go?</summary>
+      <p>Credits are added to the DIYFixThis account signed in when the purchase is completed. Sign in to the same DIYFixThis account on another device to access its remaining credits and saved repair history.</p>
+    </details>
+
+    <details>
+      <summary>Why are credit packs unavailable?</summary>
+      <p>Check your internet connection and try again. You can also close and reopen DIYFixThis. App Store products may occasionally take a short time to load. If the problem continues, confirm that App Store purchases are allowed on the device and contact support.</p>
+    </details>
+
+    <details>
+      <summary>I purchased credits but do not see them.</summary>
+      <p>Make sure you are signed in to the same DIYFixThis account used for the purchase. Open Settings and select <strong>Restore Purchases</strong> to sync any unfinished transaction. If the balance still does not update, email support with the approximate purchase date and the Apple receipt or transaction information. Never send your Apple password.</p>
+    </details>
+
+    <details>
+      <summary>Why is a rewarded ad unavailable?</summary>
+      <p>Rewarded ads require an internet connection and depend on ad availability. You may also have reached the daily reward limit. Wait a little while and try again.</p>
+    </details>
+
+    <details>
+      <summary>Can I use DIYFixThis without internet?</summary>
+      <p>Previously saved repair information may remain available offline. An internet connection is required to analyze a new photo, load previews not already cached, send feedback, watch rewarded ads, make purchases, restore purchases, and sync changes.</p>
+    </details>
+
+    <details>
+      <summary>What happens to my repair photo?</summary>
+      <p>The original photo is uploaded for analysis and deleted from our Firebase storage after analysis. If you choose to save a small preview, the preview remains with the saved repair until you delete that repair or request deletion of your account data.</p>
+    </details>
+
+    <details>
+      <summary>How do I delete a saved repair?</summary>
+      <p>In the repair list, tap the red trash button beside the repair and confirm deletion. This removes the saved repair plan and its retained preview.</p>
+    </details>
+
+    <details>
+      <summary>How do I request account deletion?</summary>
+      <p>Email <a href="mailto:diyfixthisapp@gmail.com?subject=DIYFixThis%20Account%20Deletion%20Request">diyfixthisapp@gmail.com</a> with the subject “DIYFixThis Account Deletion Request.” We may need to verify that you control the account before deleting it and its associated data.</p>
+    </details>
+
+    <h2>Before Contacting Support</h2>
+    <p>These steps solve many common issues:</p>
+    <ol>
+      <li>Confirm that the device has an internet connection.</li>
+      <li>Close and reopen DIYFixThis.</li>
+      <li>Install the latest version of DIYFixThis and iOS.</li>
+      <li>Confirm that DIYFixThis has permission to access the photos you want to use.</li>
+    </ol>
+
+    <h2>Contact Support</h2>
+    <p>When emailing, please include:</p>
+    <ul>
+      <li>Your DIYFixThis app version;</li>
+      <li>Your iPhone model and iOS version;</li>
+      <li>What you expected to happen;</li>
+      <li>What happened instead; and</li>
+      <li>A screenshot, if it does not contain sensitive information.</li>
+    </ul>
+    <p>Do not send passwords, payment-card numbers, or sensitive personal information.</p>
+
+    <footer>DIYFixThis &nbsp;•&nbsp; © 2026 Best Value LLC &nbsp;•&nbsp; <a href="privacy-policy.html">Privacy Policy</a></footer>
+  </main>
+</body>
+</html>
